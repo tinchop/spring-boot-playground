@@ -1,6 +1,7 @@
 package com.tinchop.spring.boot.playground.model;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
@@ -12,10 +13,13 @@ import javax.persistence.Entity;
 @Entity
 @RequiredArgsConstructor
 @Getter
-public class Dolphin extends Animal {
+public class Human extends Animal {
+
+    @NonNull
+    private final String firstName;
 
     @Override
     public void introduction() {
-        log.info("I'm a dolphin");
+        log.info("I'm a human");
     }
 }

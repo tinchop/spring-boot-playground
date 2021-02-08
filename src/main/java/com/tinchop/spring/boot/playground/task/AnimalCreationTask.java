@@ -2,8 +2,12 @@ package com.tinchop.spring.boot.playground.task;
 
 import com.tinchop.spring.boot.playground.model.Animal;
 import com.tinchop.spring.boot.playground.model.Dolphin;
-import com.tinchop.spring.boot.playground.model.Horse;
+import com.tinchop.spring.boot.playground.model.Human;
 import com.tinchop.spring.boot.playground.model.Owl;
+import com.tinchop.spring.boot.playground.service.DolphinService;
+import com.tinchop.spring.boot.playground.service.HumanService;
+import com.tinchop.spring.boot.playground.service.OwlService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -12,25 +16,29 @@ import java.util.Random;
 
 @Slf4j
 @Component
+@AllArgsConstructor
 public class AnimalCreationTask {
+
+    private final HumanService humanService;
+    private final DolphinService dolphinService;
+    private final OwlService owlService;
 
     @Scheduled(fixedRate = 2000)
     public void createAnimal() {
         Animal animal;
         Random random = new Random();
-        Integer number = random.ints(0, 14)
+        int number = random.ints(0, 14)
                 .findFirst()
-                .getAsInt();
-
-        if (number.intValue() > 9) {
-            animal = Owl.builder().name("Tom").build();
+                .orElseThrow();
+        if (number > 9) {
+            // animal = humanService.save(Human.builder().weight(75.0).firstName("Luis").build());
         } else if (number > 4) {
-            animal = Horse.builder().name("Fred").build();
+            animal = owlService.save(Owl.builder().weight(5.0).build());
         } else {
-            animal = Dolphin.builder().name("Mike").build();
+            animal = dolphinService.save(Dolphin.builder().weight(200.0).build());
         }
+        //animal.introduction();
 
-        animal.introduction();
 
     }
 
