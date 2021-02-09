@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Slf4j
@@ -15,8 +16,8 @@ import javax.persistence.Entity;
 @Getter
 public class Human extends Animal {
 
-    @NonNull
-    private final String firstName;
+    @Column(nullable = false)
+    protected String firstName;
 
     @Override
     public void introduction() {
