@@ -21,16 +21,13 @@ public class AnimalCreationTask {
 
     @Scheduled(fixedRate = 2000)
     public void createAnimal() {
-        Animal animal;
 
-        int number = RandomUtils.nextInt(0, 15);
-        if (number > 9) {
-            animal = humanService.createRandomAndSave();
-        } else if (number > 4) {
-            animal = owlService.createRandomAndSave();
-        } else {
-            animal = dolphinService.createRandomAndSave();
-        }
+        Animal animal = switch (RandomUtils.nextInt(1, 4)) {
+            case 1 -> humanService.createRandomAndSave();
+            case 2 -> owlService.createRandomAndSave();
+            default -> dolphinService.createRandomAndSave();
+        };
+
         animal.introduction();
 
     }
