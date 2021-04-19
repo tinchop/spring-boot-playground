@@ -25,4 +25,5 @@ public abstract class Animal {
     protected Double weight;
 
     public abstract void introduction();
+
 }

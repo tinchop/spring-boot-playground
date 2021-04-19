@@ -18,4 +18,9 @@ public class Dolphin extends Animal {
     public void introduction() {
         log.info("I'm a dolphin");
     }
+
+    @Override
+    public String toString() {
+        return "Dolphin";
+    }
 }

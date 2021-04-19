@@ -23,4 +23,9 @@ public class Human extends Animal {
     public void introduction() {
         log.info("I'm a human");
     }
+
+    @Override
+    public String toString() {
+        return "Human";
+    }
 }

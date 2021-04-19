@@ -19,4 +19,9 @@ public class Owl extends Animal {
     public void introduction() {
         log.info("I'm an owl");
     }
+
+    @Override
+    public String toString() {
+        return "Owl";
+    }
 }
