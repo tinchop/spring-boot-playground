@@ -19,7 +19,7 @@ public class AnimalCreationTask {
     private final DolphinService dolphinService;
     private final OwlService owlService;
 
-    // @Scheduled(fixedRate = 2000)
+    @Scheduled(fixedRate = 2000)
     public void createAnimal() {
 
         Animal animal = switch (RandomUtils.nextInt(1, 4)) {
