@@ -6,17 +6,20 @@ import com.tinchop.spring.boot.playground.service.HumanService;
 import com.tinchop.spring.boot.playground.service.OwlService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 @AllArgsConstructor
+@ConditionalOnProperty(value = "task.deadlock", havingValue = "true")
 public class DeadlockTask {
 
     private final OwlService owlService;
     private final HumanService humanService;
 
-    // @Scheduled(fixedRate = 999999999)
+    @Scheduled(fixedRate = 999999999)
     public void deadlock() {
 
         Owl owl = owlService.createRandomAndSave();

@@ -1,0 +1,6 @@
+task:
+  animal-creation: false
+  concurrent-animal-creation: true
+  concurrent-introductions: false
+  deadlock: false
+  task-config: true

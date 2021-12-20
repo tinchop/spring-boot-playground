@@ -8,7 +8,6 @@ import com.tinchop.spring.boot.playground.service.OwlService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -16,25 +15,23 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @AllArgsConstructor
-@ConditionalOnProperty(value = "task.animal-creation", havingValue = "true")
-public class AnimalCreationTask {
+@ConditionalOnProperty(value = "task.task-config", havingValue = "true")
+public class TaskConfigTask {
 
-    private final HumanService humanService;
-    private final DolphinService dolphinService;
-    private final OwlService owlService;
     private final TaskConfig taskConfig;
 
-    @Scheduled(fixedRate = 2000)
-    public void createAnimal() {
+    @Scheduled(fixedRate = 10000)
+    public void logTaskConfig() {
 
-        Animal animal = switch (RandomUtils.nextInt(1, 4)) {
-            case 1 -> humanService.createRandomAndSave();
-            case 2 -> owlService.createRandomAndSave();
-            default -> dolphinService.createRandomAndSave();
-        };
+        log.info("animal-creation: {}", enabledString(taskConfig.isAnimalCreation()));
+        log.info("concurrent-animal-creation: {}", enabledString(taskConfig.isConcurrentAnimalCreation()));
+        log.info("concurrent-introductions: {}", enabledString(taskConfig.isConcurrentIntroductions()));
+        log.info("deadlock: {}", enabledString(taskConfig.isDeadlock()));
 
-        animal.introduction();
+    }
 
+    private String enabledString(boolean value) {
+        return value ? "enabled" : "disabled";
     }
 
 }

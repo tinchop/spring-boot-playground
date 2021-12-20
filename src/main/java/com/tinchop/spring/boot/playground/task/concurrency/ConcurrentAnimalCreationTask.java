@@ -6,6 +6,7 @@ import com.tinchop.spring.boot.playground.service.HumanService;
 import com.tinchop.spring.boot.playground.service.OwlService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +18,14 @@ import java.util.List;
 @Slf4j
 @Component
 @AllArgsConstructor
+@ConditionalOnProperty(value = "task.concurrent-animal-creation", havingValue = "true")
 public class ConcurrentAnimalCreationTask {
 
     private final HumanService humanService;
     private final DolphinService dolphinService;
     private final OwlService owlService;
 
-    // @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedRate = 3000)
     public void concurrentAnimalCreation() {
 
         // List<Animal> animals = new ArrayList<>(); *** ArrayList is not thread-safe! ***
