@@ -1,6 +1,6 @@
 package com.tinchop.spring.boot.playground.service;
 
-import com.tinchop.spring.boot.playground.model.Human;
+import com.tinchop.spring.boot.playground.model.animal.Human;
 import com.tinchop.spring.boot.playground.repository.HumanRepository;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;

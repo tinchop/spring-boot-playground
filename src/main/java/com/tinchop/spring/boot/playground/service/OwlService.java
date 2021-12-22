@@ -1,7 +1,7 @@
 package com.tinchop.spring.boot.playground.service;
 
-import com.tinchop.spring.boot.playground.model.Animal;
-import com.tinchop.spring.boot.playground.model.Owl;
+import com.tinchop.spring.boot.playground.model.animal.Animal;
+import com.tinchop.spring.boot.playground.model.animal.Owl;
 import com.tinchop.spring.boot.playground.repository.OwlRepository;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.RandomUtils;

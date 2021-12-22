@@ -1,6 +1,6 @@
 package com.tinchop.spring.boot.playground.task.concurrency;
 
-import com.tinchop.spring.boot.playground.model.Animal;
+import com.tinchop.spring.boot.playground.model.animal.Animal;
 import com.tinchop.spring.boot.playground.service.DolphinService;
 import com.tinchop.spring.boot.playground.service.HumanService;
 import com.tinchop.spring.boot.playground.service.OwlService;

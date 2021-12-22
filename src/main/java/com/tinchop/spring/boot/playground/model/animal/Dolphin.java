@@ -1,12 +1,10 @@
-package com.tinchop.spring.boot.playground.model;
+package com.tinchop.spring.boot.playground.model.animal;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Slf4j
@@ -14,18 +12,15 @@ import javax.persistence.Entity;
 @Entity
 @RequiredArgsConstructor
 @Getter
-public class Human extends Animal {
-
-    @Column(nullable = false)
-    protected String firstName;
+public class Dolphin extends Animal {
 
     @Override
     public void introduction() {
-        log.info("I'm a human");
+        log.info("I'm a dolphin");
     }
 
     @Override
     public String toString() {
-        return "Human";
+        return "Dolphin";
     }
 }

@@ -1,6 +1,6 @@
 package com.tinchop.spring.boot.playground.service;
 
-import com.tinchop.spring.boot.playground.model.Dolphin;
+import com.tinchop.spring.boot.playground.model.animal.Dolphin;
 import com.tinchop.spring.boot.playground.repository.DolphinRepository;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.AfterEach;

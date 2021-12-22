@@ -1,4 +1,4 @@
-package com.tinchop.spring.boot.playground.model;
+package com.tinchop.spring.boot.playground.model.animal;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

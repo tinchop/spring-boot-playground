@@ -1,7 +1,7 @@
 package com.tinchop.spring.boot.playground.task.concurrency;
 
-import com.tinchop.spring.boot.playground.model.Human;
-import com.tinchop.spring.boot.playground.model.Owl;
+import com.tinchop.spring.boot.playground.model.animal.Human;
+import com.tinchop.spring.boot.playground.model.animal.Owl;
 import com.tinchop.spring.boot.playground.service.HumanService;
 import com.tinchop.spring.boot.playground.service.OwlService;
 import lombok.AllArgsConstructor;

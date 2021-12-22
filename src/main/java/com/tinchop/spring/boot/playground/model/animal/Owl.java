@@ -1,4 +1,4 @@
-package com.tinchop.spring.boot.playground.model;
+package com.tinchop.spring.boot.playground.model.animal;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,20 +7,21 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.Entity;
 
+
 @Slf4j
 @SuperBuilder
 @Entity
-@RequiredArgsConstructor
 @Getter
-public class Dolphin extends Animal {
+@RequiredArgsConstructor
+public class Owl extends Animal {
 
     @Override
     public void introduction() {
-        log.info("I'm a dolphin");
+        log.info("I'm an owl");
     }
 
     @Override
     public String toString() {
-        return "Dolphin";
+        return "Owl";
     }
 }
