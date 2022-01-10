@@ -5,8 +5,11 @@ import com.tinchop.spring.boot.playground.repository.CountryRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 @Slf4j
 @Service
@@ -14,14 +17,23 @@ import java.util.List;
 public class CountryService {
 
     private final CountryRepository repository;
+    private List<Country> cache;
 
-    public void insertInitialCountries() {
+    public Country getRandom() {
+        if (CollectionUtils.isEmpty(cache)) cache = this.createCountriesCache();
+
+        return cache.get(new Random().nextInt(cache.size()));
+    }
+
+    private List<Country> createCountriesCache() {
         log.info("*** Inserting initial countries...");
-        repository.saveAll(List.of(
-                Country.builder().id(1L).name("Argentina").build(),
-                Country.builder().id(2L).name("Brasil").build(),
-                Country.builder().id(3L).name("Uruguay").build()));
+        var countries = List.of(
+                Country.builder().name("Argentina").build(),
+                Country.builder().name("Brasil").build(),
+                Country.builder().name("Uruguay").build());
+        repository.saveAll(countries);
         log.info("*** Initial countries inserted.");
+        return countries;
     }
 
 }

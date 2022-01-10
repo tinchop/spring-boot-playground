@@ -1,6 +1,6 @@
 task:
-  animal-creation: false
-  concurrent-animal-creation: true
+  animal-creation: true
+  concurrent-animal-creation: false
   concurrent-introductions: false
   deadlock: false
   task-config: true

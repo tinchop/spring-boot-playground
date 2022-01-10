@@ -15,10 +15,10 @@ import java.util.Optional;
 @Slf4j
 @SuperBuilder
 @Entity
+@Getter
 @RequiredArgsConstructor
 public class Human extends Animal {
 
-    @Getter
     @Column(nullable = false)
     protected String firstName;
     @ManyToOne

@@ -14,9 +14,14 @@ import java.util.List;
 public class HumanService implements AnimalService<Human> {
 
     private final HumanRepository repository;
+    private final CountryService countryService;
 
     private Human createRandom() {
-        return Human.builder().weight(RandomUtils.nextDouble()).firstName(RandomStringUtils.randomAlphabetic(8)).build();
+        return Human.builder()
+                .weight(RandomUtils.nextDouble())
+                .countryOfBirth(countryService.getRandom())
+                .firstName(RandomStringUtils.randomAlphabetic(8))
+                .build();
     }
 
     @Override
