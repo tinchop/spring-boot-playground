@@ -15,5 +15,4 @@ public class TaskConfig {
     private boolean concurrentAnimalCreation;
     private boolean concurrentIntroductions;
     private boolean deadlock;
-
 }

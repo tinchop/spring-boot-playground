@@ -18,7 +18,7 @@ public class HumanService implements AnimalService<Human> {
 
     private Human createRandom() {
         return Human.builder()
-                .weight(RandomUtils.nextDouble())
+                .weight(RandomUtils.nextDouble(30.0, 200.0))
                 .countryOfBirth(countryService.getRandom())
                 .firstName(RandomStringUtils.randomAlphabetic(8))
                 .build();

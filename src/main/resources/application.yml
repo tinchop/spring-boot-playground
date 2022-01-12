@@ -4,3 +4,5 @@ task:
   concurrent-introductions: false
   deadlock: false
   task-config: true
+
+big-animal-threshold: 100.0
