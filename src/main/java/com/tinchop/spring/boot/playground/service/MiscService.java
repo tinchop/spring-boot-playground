@@ -1,6 +1,6 @@
 package com.tinchop.spring.boot.playground.service;
 
-import constant.SbpMessages;
+import com.tinchop.spring.boot.playground.constant.SbpMessages;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

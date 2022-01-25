@@ -1,6 +1,6 @@
 package com.tinchop.spring.boot.playground.service;
 
-import constant.SbpMessages;
+import com.tinchop.spring.boot.playground.constant.SbpMessages;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

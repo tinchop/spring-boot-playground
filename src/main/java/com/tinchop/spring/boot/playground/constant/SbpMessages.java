@@ -1,4 +1,4 @@
-package constant;
+package com.tinchop.spring.boot.playground.constant;
 
 public class SbpMessages {
 
